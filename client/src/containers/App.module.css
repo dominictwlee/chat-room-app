@@ -1,0 +1,10 @@
+.app {
+  margin: 5rem auto;
+  max-width: 80rem;
+  min-height: 50rem;
+  max-height: 50rem;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 5rem 1fr 5rem;
+}

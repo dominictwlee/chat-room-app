@@ -14,3 +14,7 @@ html {
   padding: 0;
   font-family: 'Roboto';
 }
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-light);
+}

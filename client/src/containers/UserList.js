@@ -29,25 +29,31 @@ export default class UserList extends Component {
         [name]: value,
       });
     };
+
+    this.handleSubmitUsername = event => {
+      event.preventDefault();
+      console.log('test');
+      this.setState(state => {
+        return { onlineUsers: [...state.onlineUsers, state.username] };
+      });
+    };
   }
   render() {
+    const { onlineUsers } = this.state;
     return (
       <Fragment>
-        <div className={styles.loginContainer}>
+        <form className={styles.loginContainer} onSubmit={this.handleSubmitUsername}>
           <TextInput styleName="loginInput" handleInputChange={this.handleInputChange} username={this.state.username} />
-          <JoinButton size="small">Join</JoinButton>
-        </div>
+          <JoinButton size="small" handleSubmitUsername={this.handleSubmitUsername}>
+            Join
+          </JoinButton>
+        </form>
         <div className={styles.listContainer}>
           <Scrollbars renderThumbVertical={this.renderThumb}>
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
-            <Username name="Tom" styleName="listUser" />
+            {onlineUsers.map(onlineUser => {
+              console.log(onlineUser);
+              return <Username name={onlineUser} styleName="listUser" />;
+            })}
           </Scrollbars>
         </div>
       </Fragment>

@@ -11,9 +11,9 @@ const styles = {
   },
 };
 
-const BasicButton = ({ classes, size, children }) => (
+const BasicButton = ({ classes, size, children, handleSubmitUsername }) => (
   <MuiThemeProvider theme={theme}>
-    <Button variant="raised" color="secondary" size={size} className={classes.button}>
+    <Button type="submit" variant="raised" color="secondary" size={size} className={classes.button}>
       {children}
     </Button>
   </MuiThemeProvider>

@@ -1,3 +1,4 @@
 .listContainer {
   grid-row: 2 / 2;
+  justify-content: center;
 }

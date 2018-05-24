@@ -19,19 +19,23 @@ export default class UserList extends Component {
     return (
       <div className={styles.listContainer}>
         <Scrollbars renderThumbVertical={this.renderThumb}>
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
-          <Username name="Tom" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
+          <Username name="Tom" styleName="users" />
         </Scrollbars>
       </div>
     );

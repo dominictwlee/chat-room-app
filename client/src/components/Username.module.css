@@ -1,5 +1,6 @@
-.userContainer {
-  border-bottom: 1px solid grey;
+.users {
+  font-weight: 400;
+  font-size: 1.2rem;
   padding: 1rem;
   text-align: center;
 }

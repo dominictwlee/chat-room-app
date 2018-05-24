@@ -1,0 +1,13 @@
+.container {
+  height: 3rem;
+}
+
+.textInput {
+  padding: 0 1rem;
+  min-width: 50rem;
+  min-height: 2.5rem;
+  border: none;
+  border-radius: 15px;
+  background-color: #5c6169;
+  color: white;
+}

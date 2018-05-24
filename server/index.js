@@ -1,12 +1,19 @@
-const express = require('express');
-const http = require('http');
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
-const app = express();
-const port = process.env.PORT || 3000;
-const server = http.Server(app);
+const port = process.env.PORT || 3001;
 
-app.get('/', (req, res) => {
-  res.send('hello world');
+io.on('connection', socket => {
+  console.log('a user connected');
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+
+  socket.on('chat', data => {
+    io.emit('chat', data);
+  });
 });
 
 server.listen(port, () => {

@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 
-import MessageInput from 'components/MessageInput';
-import SendButton from 'components/SendButton';
+import TextInput from 'components/TextInput';
+import SendButton from 'components/Button';
 import Header from 'components/Header';
 import Username from 'components/Username';
 
@@ -14,9 +14,22 @@ export default class Chatroom extends Component {
 
     this.state = {
       time: moment().calendar(),
+      name: 'Tom',
+    };
+
+    this.handleSubmitName = name => {
+      this.setState({ name });
+    };
+
+    this.handleInputChange = event => {
+      const { value, name } = event.target;
+      this.setState({
+        [name]: value,
+      });
     };
   }
   render() {
+    const { name } = this.state;
     return (
       <Fragment>
         <div className={styles.headerContainer}>
@@ -24,7 +37,7 @@ export default class Chatroom extends Component {
         </div>
         <div className={styles.bodyContainer}>
           <div className={styles.messageContainer}>
-            <Username name="Jason" styleName="chatUser" />
+            <Username name={name} styleName="chatUser" />
             <p className={styles.timeStamp}>{this.state.time}</p>
             <p className={styles.message}>
               vdfasvojidfvjoidfjsbvjvjiogoisdfsvdfs gfi oidfsgdfisbvdfsnvbdfbgdfs vdsavdasvf das vdefdasfdasfvdfbd
@@ -33,8 +46,8 @@ export default class Chatroom extends Component {
           </div>
         </div>
         <div className={styles.inputContainer}>
-          <MessageInput />
-          <SendButton />
+          <TextInput styleName="messageInput" />
+          <SendButton>Send</SendButton>
         </div>
       </Fragment>
     );

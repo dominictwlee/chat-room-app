@@ -27,7 +27,7 @@
   min-height: 50rem;
   max-height: 50rem;
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 27% 73%;
   grid-template-rows: 5rem 1fr 5rem;
 }
 

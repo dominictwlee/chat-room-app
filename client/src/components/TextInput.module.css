@@ -1,0 +1,28 @@
+.container {
+  height: 3rem;
+}
+
+.textInput {
+  border-radius: 15px;
+  border: none;
+  background-color: var(--primary-light);
+  color: white;
+  appearance: none;
+}
+
+.textInput:focus {
+  box-shadow: 0 0 0 0.1rem var(--secondary-light);
+}
+
+.messageInput {
+  composes: textInput;
+  padding: 0 1rem;
+  min-width: 50rem;
+  min-height: 2.5rem;
+}
+
+.loginInput {
+  composes: textInput;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}

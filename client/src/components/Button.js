@@ -11,12 +11,12 @@ const styles = {
   },
 };
 
-const SendButton = ({ classes }) => (
+const BasicButton = ({ classes, size, children }) => (
   <MuiThemeProvider theme={theme}>
-    <Button variant="raised" color="secondary" className={classes.button}>
-      Send
+    <Button variant="raised" color="secondary" size={size} className={classes.button}>
+      {children}
     </Button>
   </MuiThemeProvider>
 );
 
-export default withStyles(styles)(SendButton);
+export default withStyles(styles)(BasicButton);

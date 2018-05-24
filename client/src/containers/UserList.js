@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import Username from 'components/Username';
+import React, { Component, Fragment } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
+
+import TextInput from 'components/TextInput';
+import JoinButton from 'components/Button';
+import Username from 'components/Username';
 
 import styles from './UserList.module.css';
 
@@ -17,19 +20,25 @@ export default class UserList extends Component {
   }
   render() {
     return (
-      <div className={styles.listContainer}>
-        <Scrollbars renderThumbVertical={this.renderThumb}>
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-          <Username name="Tom" styleName="listUser" />
-        </Scrollbars>
-      </div>
+      <Fragment>
+        <div className={styles.loginContainer}>
+          <TextInput styleName="loginInput" />
+          <JoinButton size="small">Join</JoinButton>
+        </div>
+        <div className={styles.listContainer}>
+          <Scrollbars renderThumbVertical={this.renderThumb}>
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+            <Username name="Tom" styleName="listUser" />
+          </Scrollbars>
+        </div>
+      </Fragment>
     );
   }
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "node_modules/.bin/eslint --ignore-path .gitignore .",
+    "prestart": "node_modules/.bin/eslint --config ./.eslintrc.json server",
     "start": "node server/index.js",
     "start:watch": "nodemon --exec 'npm start'",
     "test": "echo \"Error: no test specified\" && exit 1"

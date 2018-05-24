@@ -55,7 +55,7 @@ export default class Chatroom extends Component {
   }
 
   render() {
-    const { name, newMessage } = this.state;
+    const { newMessage, messages } = this.state;
     return (
       <Fragment>
         <div className={styles.headerContainer}>
@@ -63,12 +63,13 @@ export default class Chatroom extends Component {
         </div>
         <div className={styles.bodyContainer}>
           <div className={styles.messageContainer}>
-            <Username name={name} styleName="chatUser" />
-            <p className={styles.timeStamp}>{this.state.time}</p>
-            <p className={styles.message}>
-              vdfasvojidfvjoidfjsbvjvjiogoisdfsvdfs gfi oidfsgdfisbvdfsnvbdfbgdfs vdsavdasvf das vdefdasfdasfvdfbd
-              dfdsgfdsgfdgsd
-            </p>
+            {messages.map(message => (
+              <Fragment>
+                <Username name={message.name} styleName="chatUser" />
+                <p className={styles.timeStamp}>{message.timestamp}</p>
+                <p className={styles.message}>{message.message}</p>
+              </Fragment>
+            ))}
           </div>
         </div>
         <form className={styles.inputContainer} onSubmit={this.handleSubmit}>

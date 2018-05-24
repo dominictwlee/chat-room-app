@@ -19,6 +19,7 @@ io.on('connection', socket => {
   });
 
   socket.on('chat', data => {
+    console.log(`message: ${JSON.parse}`);
     io.emit('chat', data);
   });
 });

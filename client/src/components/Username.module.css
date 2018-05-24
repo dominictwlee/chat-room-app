@@ -1,6 +1,11 @@
-.users {
+.listUser {
   font-weight: 400;
   font-size: 1.2rem;
   padding: 1rem;
   text-align: center;
+}
+
+.chatUser {
+  font-weight: 400;
+  font-size: 1rem;
 }

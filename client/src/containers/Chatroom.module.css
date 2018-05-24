@@ -12,3 +12,25 @@
   grid-row: 1;
   grid-column: 2;
 }
+
+.bodyContainer {
+  grid-column: 2;
+  grid-row: 2;
+  max-width: inherit;
+}
+
+.messageContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.message {
+  min-width: 100%;
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+.timeStamp {
+  margin-left: 1rem;
+}

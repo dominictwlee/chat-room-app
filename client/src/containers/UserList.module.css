@@ -6,4 +6,7 @@
 .loginContainer {
   grid-row: 1 / 1;
   grid-column: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

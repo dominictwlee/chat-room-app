@@ -36,18 +36,25 @@ export default class UserList extends Component {
       this.setState(state => {
         return { onlineUsers: [...state.onlineUsers, state.username] };
       });
+      this.props.handleUser(this.state.username);
     };
   }
   render() {
-    const { onlineUsers } = this.state;
+    const { onlineUsers, username } = this.state;
     return (
       <Fragment>
         <form className={styles.loginContainer} onSubmit={this.handleSubmitUsername}>
-          <TextInput styleName="loginInput" handleInputChange={this.handleInputChange} username={this.state.username} />
+          <TextInput
+            styleName="loginInput"
+            handleInputChange={this.handleInputChange}
+            inputValue={username}
+            inputName="username"
+          />
           <JoinButton size="small" handleSubmitUsername={this.handleSubmitUsername}>
             Join
           </JoinButton>
         </form>
+
         <div className={styles.listContainer}>
           <Scrollbars renderThumbVertical={this.renderThumb}>
             {onlineUsers.map(onlineUser => {

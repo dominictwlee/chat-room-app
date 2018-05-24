@@ -1,16 +1,22 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import styles from './SendButton.module.css';
 import theme from 'utils/materialThemes';
 
-const SendButton = () => (
+const styles = {
+  button: {
+    'margin-left': '1rem',
+  },
+};
+
+const SendButton = ({ classes }) => (
   <MuiThemeProvider theme={theme}>
-    <Button variant="raised" color="secondary">
+    <Button variant="raised" color="secondary" className={classes.button}>
       Send
     </Button>
   </MuiThemeProvider>
 );
 
-export default SendButton;
+export default withStyles(styles)(SendButton);

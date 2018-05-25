@@ -10,11 +10,12 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.3.2",
     "react-scripts-cssmodules": "1.1.10",
+    "shortid": "^2.2.8",
     "socket.io-client": "^2.1.1"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

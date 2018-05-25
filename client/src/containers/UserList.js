@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
+import shortid from 'shortid';
 
 import TextInput from 'components/TextInput';
 import JoinButton from 'components/Button';
@@ -59,7 +60,7 @@ export default class UserList extends Component {
           <Scrollbars renderThumbVertical={this.renderThumb}>
             {onlineUsers.map(onlineUser => {
               console.log(onlineUser);
-              return <Username name={onlineUser} styleName="listUser" />;
+              return <Username key={shortid.generate()} name={onlineUser} styleName="listUser" />;
             })}
           </Scrollbars>
         </div>

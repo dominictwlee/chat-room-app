@@ -9,4 +9,5 @@ A simple real-time chat app to experiment with Socket.IO and how it integrates w
 * [Moment.js](https://momentjs.com/)
 * [Socket.IO](https://socket.io/)
 * [CSS Modules](https://github.com/css-modules/css-modules)
+* [Material-UI](https://material-ui.com/)
 * [React](https://reactjs.org/)

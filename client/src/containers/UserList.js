@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import shortid from 'shortid';
+import io from 'socket.io-client';
 
 import TextInput from 'components/TextInput';
 import JoinButton from 'components/Button';
@@ -16,6 +17,8 @@ export default class UserList extends Component {
       username: '',
       onlineUsers: [],
     };
+
+    this.socket = io('http://localhost:3001');
 
     this.renderThumb = ({ style, ...props }) => {
       const thumbStyle = {
@@ -33,13 +36,23 @@ export default class UserList extends Component {
 
     this.handleSubmitUsername = event => {
       event.preventDefault();
-      console.log('test');
-      this.setState(state => {
-        return { onlineUsers: [...state.onlineUsers, state.username] };
+
+      this.socket.emit('users', {
+        username: this.state.username,
       });
+
+      this.socket.on('users', onlineUser => {
+        this.setState(state => {
+          return { onlineUsers: [...state.onlineUsers, onlineUser.username] };
+        });
+      });
+
       this.props.handleUser(this.state.username);
     };
   }
+
+  componentDidMount() {}
+
   render() {
     const { onlineUsers, username } = this.state;
     return (
@@ -59,7 +72,6 @@ export default class UserList extends Component {
         <div className={styles.listContainer}>
           <Scrollbars renderThumbVertical={this.renderThumb}>
             {onlineUsers.map(onlineUser => {
-              console.log(onlineUser);
               return <Username key={shortid.generate()} name={onlineUser} styleName="listUser" />;
             })}
           </Scrollbars>

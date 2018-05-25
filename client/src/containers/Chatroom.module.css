@@ -19,10 +19,11 @@
   max-width: inherit;
 }
 
-.messageContainer {
+.messagesContainer {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .message {

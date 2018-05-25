@@ -28,4 +28,9 @@ io.on('connection', socket => {
     console.log('message', JSON.stringify(data, null, 10));
     io.emit('chat', data);
   });
+
+  socket.on('users', data => {
+    console.log('message', JSON.stringify(data, null, 10));
+    io.emit('users', data);
+  });
 });

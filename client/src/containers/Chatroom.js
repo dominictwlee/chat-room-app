@@ -60,7 +60,6 @@ export default class Chatroom extends Component {
 
   componentWillUnmount() {
     this.socket.close();
-    this.socket.off('chat');
   }
 
   render() {
@@ -72,15 +71,13 @@ export default class Chatroom extends Component {
         </div>
         <div className={styles.bodyContainer}>
           <Scrollbars renderThumbVertical={this.renderThumb}>
-            <div className={styles.messageContainer}>
-              {messages.map(message => (
-                <Fragment key={shortid.generate()}>
-                  <Username name={message.name} styleName="chatUser" />
-                  <p className={styles.timeStamp}>{message.timestamp}</p>
-                  <p className={styles.message}>{message.message}</p>
-                </Fragment>
-              ))}
-            </div>
+            {messages.map(message => (
+              <section key={shortid.generate()} className={styles.messagesContainer}>
+                <Username name={message.name} styleName="chatUser" />
+                <p className={styles.timeStamp}>{message.timestamp}</p>
+                <p className={styles.message}>{message.message}</p>
+              </section>
+            ))}
           </Scrollbars>
         </div>
         <form className={styles.inputContainer} onSubmit={this.handleSubmit}>

@@ -6,6 +6,7 @@ import io from 'socket.io-client';
 import TextInput from 'components/TextInput';
 import JoinButton from 'components/Button';
 import Username from 'components/Username';
+import WelcomeMessage from 'components/WelcomeMessage';
 
 import styles from './UserList.module.css';
 
@@ -16,6 +17,7 @@ export default class UserList extends Component {
     this.state = {
       username: '',
       onlineUsers: [],
+      hasJoined: false,
     };
 
     this.socket = io('http://localhost:3001');
@@ -43,7 +45,7 @@ export default class UserList extends Component {
 
       this.socket.on('users', onlineUser => {
         this.setState(state => {
-          return { onlineUsers: [...state.onlineUsers, onlineUser.username] };
+          return { onlineUsers: [...state.onlineUsers, onlineUser.username], hasJoined: true };
         });
       });
 
@@ -51,23 +53,30 @@ export default class UserList extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentWillUnmount() {
+    this.socket.close();
+    this.setState({ hasJoined: false });
+  }
 
   render() {
-    const { onlineUsers, username } = this.state;
+    const { onlineUsers, username, hasJoined } = this.state;
     return (
       <Fragment>
-        <form className={styles.loginContainer} onSubmit={this.handleSubmitUsername}>
-          <TextInput
-            styleName="loginInput"
-            handleInputChange={this.handleInputChange}
-            inputValue={username}
-            inputName="username"
-          />
-          <JoinButton size="small" handleSubmitUsername={this.handleSubmitUsername}>
-            Join
-          </JoinButton>
-        </form>
+        {!hasJoined ? (
+          <form className={styles.loginContainer} onSubmit={this.handleSubmitUsername}>
+            <TextInput
+              styleName="loginInput"
+              handleInputChange={this.handleInputChange}
+              inputValue={username}
+              inputName="username"
+            />
+            <JoinButton size="small" handleSubmitUsername={this.handleSubmitUsername}>
+              Join
+            </JoinButton>
+          </form>
+        ) : (
+          <WelcomeMessage message={`Welcome, ${username}`} styleName="welcomeUser" />
+        )}
 
         <div className={styles.listContainer}>
           <Scrollbars renderThumbVertical={this.renderThumb}>
